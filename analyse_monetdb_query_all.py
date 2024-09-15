@@ -7,7 +7,6 @@ def execute_query(conn, query):
     cursor = conn.cursor()
     start_time = time.time()
     cursor.execute(query)
-    # Uncomment the following line if you need to fetch results
     # cursor.fetchall()
     end_time = time.time()
     cursor.close()
