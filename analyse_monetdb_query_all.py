@@ -43,7 +43,7 @@ if __name__ == "__main__":
 
     for query_index in range(1, 23):
         # Define the SQL query to benchmark
-        query = read_sql_file('/Users/lujing/Desktop/cources/dbms/assignment_1/downloaded/dbgen/MonetDB/q' + str(query_index).zfill(2) + '.sql')
+        query = read_sql_file('./MonetDB/q' + str(query_index).zfill(2) + '.sql')
         print(query)
 
         # Number of runs to execute the query
