@@ -1,4 +1,5 @@
 import pandas as pd
+import time
 
 # sql
 query_06 = '''
@@ -44,15 +45,16 @@ lineitem = pd.read_csv('./SF-1/data/lineitem.tbl', sep='|', names=column_names, 
 
 
 # print 10 lines if the data is loaded successfully
-print(lineitem.head(2))
+# print(lineitem.head(2))
 
 # shipdate, start date and end date
 lineitem['l_shipdate'] = pd.to_datetime(lineitem['l_shipdate'])
 start_date = pd.to_datetime('1994-01-01')
 end_date = start_date + pd.DateOffset(years=1)
 
-print(f"*** start_date: {start_date}, end_date:, {end_date}")
+# print(f"*** start_date: {start_date}, end_date:, {end_date}")
 
+start_time = time.time()
 # filter
 filtered_df = lineitem[
     (lineitem['l_shipdate'] >= start_date) &
@@ -62,8 +64,12 @@ filtered_df = lineitem[
 ]
 
 # print 10 lines if the data is filtered successfully
-print(filtered_df.head(2))
+# print(filtered_df.head(2))
 
 # calculate revenue
 revenue = (filtered_df['l_extendedprice'] * filtered_df['l_discount']).sum()
+end_time = time.time()
+time_used = end_time - start_time
+
 print(f"Revenue: {revenue}")
+print(f"time_used: {time_used}s")
