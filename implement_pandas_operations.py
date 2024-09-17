@@ -55,10 +55,10 @@ print(f"*** start_date: {start_date}, end_date:, {end_date}")
 
 # filter
 filtered_df = lineitem[
-    (lineitem['l_shipdate'] >= start_date) &  # Date greater than or equal to '1994-01-01'
-    (lineitem['l_shipdate'] < end_date) &     # Date less than '1995-01-01'
-    (lineitem['l_discount'].between(0.05, 0.07)) &  # Discount between 0.05 and 0.07
-    (lineitem['l_quantity'] < 24)             # Quantity less than 24
+    (lineitem['l_shipdate'] >= start_date) &
+    (lineitem['l_shipdate'] < end_date) &
+    (lineitem['l_discount'].between(0.05, 0.07)) &
+    (lineitem['l_quantity'] < 24)
 ]
 
 # print 10 lines if the data is filtered successfully
