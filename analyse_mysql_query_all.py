@@ -49,7 +49,7 @@ def read_sql_file(file_path):
     return sql_content
 
 if __name__ == "__main__":
-    # Connect to MonetDB (update credentials and database connection info)
+    # Connect to Mysql
     conn = pymysql.connect(user="root", passwd="lujing00", host="localhost", db="db_assignment_1")
 
     for query_index in range(1, 23):
